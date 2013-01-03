@@ -1,23 +1,55 @@
 /**
- * The helper function used to merge multiple objects into one object.
- * 
- * @return {Object} New object.
- */
-module.exports = function() {
+* The helper function used to merge two objects into one object.
+*
+* @param {Object} target - The first object
+* @param {Object} src - The second object (or array)
+*
+* @return {Object} New object that merged 2 objects in one.
+* @author Trong Tran
+*/
+module.exports = function merge (target, src) {
+  var array = Array.isArray(src);
+  var dst = array && [] || {};
 
-  var x = Array.prototype.slice.call(arguments),
-      y = x.shift();
+  // Process if src is an Array
+  if (array) {
+    target = target || [];
+    dst = dst.concat(target);
 
-  x.forEach(function(z) {
-    if (typeof z == 'object')
+    src.forEach(function(e, i) {
+      if (typeof e === 'object') {
+        dst[i] = merge(target[i], e);
 
-      Object.getOwnPropertyNames(z).forEach(function(w) {
-      	
-        Object.defineProperty(y, w, Object.getOwnPropertyDescriptor(z, w));
-      });
-    
-  });
+      } else {
+        if (target.indexOf(e) === -1) {
+          dst.push(e);
+        }
+      }
+    });
   
-  // Return new object
-  return y;
-};
+  // Process if src is an Object        
+  } else {
+    if (target && typeof target === 'object') {
+      Object.keys(target).forEach(function (key) {
+        dst[key] = target[key];
+      });
+    }
+
+    Object.keys(src).forEach(function (key) {
+      if (typeof src[key] !== 'object' || !src[key]) {
+        dst[key] = src[key];
+      }
+
+      else {
+        if (!target[key]) {
+          dst[key] = src[key];
+        } else {
+          dst[key] = merge(target[key], src[key]);
+        }
+      }
+    });
+  }
+
+  // Return value
+  return dst;
+}
