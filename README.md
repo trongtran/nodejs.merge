@@ -1,4 +1,4 @@
-NodeJS Merge 1.0.0
+NodeJS Merge 0.0.1
 ==================================================
 
 What is this?
@@ -10,7 +10,6 @@ Example
 --------------------------------------
 
 	var Merge = require('merge'),
+	    result = Merge({ name: 'TrongTran' }, { age: '30' });
 
-		result = Merge({ one: 'hello' }, { two: 'world' });
-
-	console.log(result); // {"one":"hello","two":"world"}
+	console.log(result); // {"name":"TrongTran","age":"30"}
