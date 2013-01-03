@@ -4,7 +4,7 @@ NodeJS Merge 0.0.1
 What is this?
 --------------------------------------
 
-NodeJS Merge is used to merge multiple objects into one object.
+NodeJs merge is used to merge multiple objects into one object.
 
 Example
 --------------------------------------
