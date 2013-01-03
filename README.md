@@ -10,6 +10,6 @@ Example
 --------------------------------------
 
 	var Merge = require('merge'),
-	    result = Merge({ name: 'TrongTran' }, { age: '30' });
+	    result = Merge({ name: 'TrongTran' }, { company: 'AsNet' });
 
-	console.log(result); // {"name":"TrongTran","age":"30"}
+	console.log(result); // {"name":"TrongTran","company":"AsNet"}
