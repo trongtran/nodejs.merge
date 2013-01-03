@@ -2,9 +2,9 @@
 	
 	"name": "merge",
 	"version": "1.0.0",
-	"author": "yeikos",
+	"author": "TrongTran",
 	"description": "NodeJS Merge is used to merge multiple objects into one object.",
-	"homepage": "https://github.com/yeikos/nodejs.merge",
+	"homepage": "https://github.com/trongtran/nodejs.merge",
 	"main": "index.js"
 	
 }
